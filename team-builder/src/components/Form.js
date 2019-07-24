@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Form, Button, Col } from "react-bootstrap";
 
-const InputForm = () => {
-  const [member, setMember] = useState({ name: "", email: "", role: "" });
+const InputForm = ({addMember}) => {
+  const [member, setMember] = useState({ firstName: "", lastName:"", email: "", role: "" });
 
  const changeHandler = (event) => {
     const { name, value } = event.target;
@@ -10,7 +10,9 @@ const InputForm = () => {
     console.log(member)
   }
  
- function handleSubmit(event) {
+ const handleSubmit = (event) => {
+     const newMember = addMember;
+     newMember(member);
     event.preventDefault();
     console.log("Member Info", member);
   }
@@ -19,11 +21,11 @@ const InputForm = () => {
         <Form.Row>
             <Col>
                 <Form.Label>First Name: </Form.Label>
-                <Form.Control placeholder="First name" name="name" onChange={(event) => changeHandler(event)} />
+                <Form.Control placeholder="First name" name="firstName" onChange={(event) => changeHandler(event)} />
             </Col>
             <Col>
                 <Form.Label>Last Name: </Form.Label>
-                <Form.Control placeholder="Last name" />
+                <Form.Control placeholder="Last name" name="lastName" onChange={(event) => changeHandler(event)} />
             </Col>
             <Col>
                 <Form.Label>Email address: </Form.Label>
