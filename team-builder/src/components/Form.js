@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import { Form, Button, Col } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const InputForm = ({addMember}) => {
-  const [member, setMember] = useState({ firstName: "", lastName:"", email: "", role: "" });
+const InputForm = (props) => {
+    const [member, setMember] = useState({ firstName: "", lastName:"", email: "", role: "" });
 
  const changeHandler = (event) => {
     const { name, value } = event.target;
-    setMember({...member, [name]: value})
-    console.log(member)
+     const newMember = {...member, [name]: value};
+    setMember(newMember);
+    console.log(member);
   }
  
  const handleSubmit = (event) => {
-     const newMember = addMember;
-     newMember(member);
+    props.setList(member);
     event.preventDefault();
     console.log("Member Info", member);
   }
   return (
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} >
+      <h2>Add New Member</h2>
         <Form.Row>
             <Col>
                 <Form.Label>First Name: </Form.Label>
@@ -36,11 +38,12 @@ const InputForm = ({addMember}) => {
                 <Form.Control placeholder="Role" name="role" onChange={(event) => changeHandler(event)} />
             </Col>
         </Form.Row>
-      
-        <Button variant="primary" type="submit">
+        <br/>
+        <Button variant="primary" type="submit" className="btn btn-primary disabled">
             Submit
         </Button>
       </Form>
+        
  );
 }
 export default InputForm;

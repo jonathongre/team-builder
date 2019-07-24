@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+    padding-top: 10px;
+    margin: auto;
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 1px 1px 10px black;
+    flex-direction: column;
+    
 }
 
 .App-logo {
@@ -30,4 +40,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+     
 }
