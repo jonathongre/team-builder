@@ -4,7 +4,7 @@ import MemberCard from './components/Card';
 import './App.css';
 
 function App() {
-  const [groupList, setGroupList] = useState([{ name: "", email: "", role: "" }]);
+  const [groupList, setGroupList] = useState([{ firstName: "Jonathon", lastName: "Green", email: "jonathongre@gmail.com", role: "Student" }]);
   function addPersonToList(person) {
     console.log(person)
     console.log(groupList)

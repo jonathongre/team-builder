@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const MemberCard = (props) => {
     const person = props.person;
     return (
-    <Card border="primary" style={{ maxWidth: '20rem', margin: '2rem 0' }}>
+    <Card style={{ maxWidth: '20rem', margin: '2rem 2rem', boxShadow: '1px 1px 10px black' }}>
     <Card.Header>{person.firstName} {person.lastName}</Card.Header>
     <Card.Body>
       <Card.Title>{person.email}</Card.Title>
